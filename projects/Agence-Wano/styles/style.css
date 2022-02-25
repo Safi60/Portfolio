@@ -1,0 +1,446 @@
+/* *, ::after, ::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;600&display=swap');
+
+body {
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+    height: 100vh;
+}
+
+.grille-accueil {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: 70px 500px minmax(300px, 1fr) / 600px 1fr 600px ;
+}
+
+
+/* --------------------- MENU --------------------- */
+
+.menu {
+    grid-area: 1 / 1 / 2 / -1;
+    background: #000;
+    width: 100%;
+    height: 70px;
+}
+
+.titre-menu {
+    font-family: Playfair Display, 'Times New Roman', Times, serif;
+    background: #f1f1f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    height: 70px;
+    position: relative;
+    z-index: 200;
+    border-bottom: 1px solid #000;
+}
+
+.menu:hover, .menu-mobile > .titre-menu {
+    border-bottom: 0px solid #000;
+}
+
+.titre-menu::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 35px;
+    height: 1px;
+    background: #F1C40F;
+    top: 61px;
+}
+
+.liste-menu {
+    font-family: Playfair Display, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    background: #f1f1f1;
+    position: relative;
+    z-index: 100;
+    top: -200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    border-bottom: 1px solid #000;
+}
+
+.titre-menu:hover + .liste-menu, .title-mobile + .liste-menu {
+    transition: top 0.2s ease-in-out;
+    top: 0px;
+}
+
+.liste-menu:hover, .liste-mobile {
+    top: 0px;
+}
+
+.liste-menu li {
+    margin: 10px 0;
+}
+
+.liste-menu a {
+    text-decoration: none;
+    font-size: 22px;
+    color: #000;
+    position: relative;
+}
+
+.liste-menu a::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: #F1C40F;
+    transform: scale(0);
+    transition: transform 0.2s ease-in-out;
+} 
+
+.liste-menu a:hover::after, .liste-mobile .lien-mobile::after{
+    transform: scale(1);
+}
+
+
+/* --------------------- Presentation --------------------- */
+
+.presentation {
+    grid-area: 2 / 1 / 3 / 2;
+    background:  #fadbd8;
+    padding: 40px;
+}
+
+
+.presentation img {
+    width: 80px;
+    pointer-events: none;
+}
+
+.presentation h1 {
+    font-size: 80px;
+    font-family: Playfair Display, 'Times New Roman', Times, serif;
+    font-weight: 900;
+    color:   #c0392b;
+}
+
+.presentation p {
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 20px;
+    line-height: 1.3;
+    color:  #c0392b;
+}
+
+.presentation a {
+    padding: 15px;
+    text-decoration: none;
+    color: #f1f1f1;
+    border: 1px solid #333;
+    background: #c0392b;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    display: block;
+    width: 170px;
+    text-align: center;
+}
+
+.presentation a:hover {
+    background-color: #f1f1f1;;
+    color: #c0392b ;
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* --------------------- SLIDER --------------------- */
+
+.slider {
+    grid-area: 2 / 2 / 3 / -1;
+    position: relative;
+}
+
+.container-slides {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.container-slides img {
+    position: absolute;
+    top: 0px;
+    opacity: 0; 
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.6s ease-in-out;
+}
+
+img.active {
+    opacity: 1;
+}
+
+.cont-btn {
+    position: absolute;
+    top: 85%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    margin: 0 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    color: #333;
+    background: #f1f1f154;
+    border: 1px solid #333;
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-nav:hover {
+    transform: scale(1.2);
+}
+
+.btn-nav img {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* --------------------- CHOIX --------------------- */
+
+.choix {
+    grid-area: 3 / 1 / 4 / 3;
+    background: #7F8C8D;
+    color: #f1f1f1;
+    border: 1px solid #000;
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.titre-choix {
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: Playfair Display, 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.choix p {
+    font-size: 25px;
+    line-height: 1.4;
+    font-family: 'Oswald', sans-serif;
+}
+
+.go-galerie {
+    font-size: 22px;
+    display: block; /*éléments inline on ne peut pas donner une width et un height*/
+    margin: 20px auto 0;
+    width: 300px;
+    padding: 20px;
+    text-decoration: none;
+    border: 1px solid #fff;
+    text-align: center;
+    border-radius: 5px;
+    background: #7F8C8D;
+    color: #f1f1f1;
+}
+
+.go-galerie:hover {
+    transition: all 0.2s ease-in-out;
+    background: #f1f1f1;
+    color: #7F8C8D;
+}
+
+
+.cont-medias {
+    /* Pour centrer l'élément */
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.media {
+    margin: 10px 0;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #f1f1f1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media img {
+    width: 25px;
+}
+
+
+
+/* --------------------- CONTACT --------------------- */
+
+.contact {
+    grid-area: 3 / 3 / 4 / 4 ;
+    background:  #FFF074;
+    color: #000;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact h3 {
+    font-size: 70px;
+    padding-left: 50px;
+    font-family: Playfair Display, 'Times New Roman', Times, serif;
+}
+
+.go-contact {
+    flex-shrink: 0;
+    margin-right: 105px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    border: 1px solid #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.go-contact:hover {
+    transform: scale(1.2);
+}
+
+.go-contact img{
+    width: 50px;
+    height: 50px;
+}
+
+/* --------------------- FOOTER --------------------- */
+
+footer {
+    border-top: 1px dashed #000;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+
+
+
+/* --------------------- RESPONSIVE --------------------- */
+
+@media screen and (max-width: 1400px) {
+    .cont-medias {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .grille-accueil {
+        grid-template: 70px 500px minmax(300px, 1fr) / 400px 1fr 400px;
+    }
+
+    .contact h3 {
+        font-size: 50px;
+        padding-left: 50px;
+    }
+
+    .go-contact {
+        width: 70px;
+        height: 70px;
+        margin-right: 55px;
+    }
+
+    .go-contact img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+
+@media screen and (max-width: 950px) {
+    .titre-choix {
+        font-size: 35px;
+    }
+
+    .go-galerie {
+        font-size: 18px;
+        width: 250px;
+        padding: 18px;
+    }
+}
+
+@media screen and (max-width: 800px){
+
+    .presentation {
+        padding: 30px;
+    }
+    .presentation h1 {
+        font-size: 60px;
+        margin-top: 5px;
+    }
+
+    .grille-accueil {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container-slides {
+        height: 500px;
+    }
+
+     .titre-choix {
+        font-size: 28px;
+        margin: 50px 10px 20px;
+    }
+    .go-galerie {
+        font-size: 18px;
+        width: 230px;
+        padding: 16px;
+        margin: 20px auto 50px;
+    }
+    .presentation{
+        border-bottom: 1px solid #000;
+    }
+    .contact {
+        display: block;
+    }
+    .contact h3 {
+        padding-left: 0;
+        margin-top: 10px;
+        text-align: center;
+    }
+    .go-contact {
+        width: 70px;
+        height: 70px;
+        margin: 30px auto;
+    }
+    .go-contact img {
+        width: 35px;
+        height: 35px;
+    }
+} 
